@@ -1,139 +1,179 @@
 {
-  "title": "StableDiffusionProcessingTxt2Img",
-  "type": "object",
-  "properties": {
-    "enable_hr": {
-      "title": "Enable Hr",
-      "type": "boolean",
-      "default": false
-    },
-    "denoising_strength": {
-      "title": "Denoising Strength",
-      "type": "number",
-      "default": 0
-    },
-    "firstphase_width": {
-      "title": "Firstphase Width",
-      "type": "integer",
-      "default": 0
-    },
-    "firstphase_height": {
-      "title": "Firstphase Height",
-      "type": "integer",
-      "default": 0
-    },
-    "prompt": {
-      "title": "Prompt",
-      "type": "string",
-      "default": ""
-    },
-    "styles": {
-      "title": "Styles",
-      "type": "array",
-      "items": {
+  "schema": {
+    "title": "",
+    "type": "object",
+    "properties": {
+      "prompt": {
+        "title": "Prompt",
+        "type": "string",
+        "default": "",
+        "description": "description what do you want to gene"
+      },
+      "width": {
+        "title": "Width",
+        "type": "integer",
+        "default": 512,
+        "minimum": 0,
+        "maximum": 2048,
+        "multipleOf": 64,
+        "description": "width of the output image"
+      },
+      "height": {
+        "title": "Height",
+        "type": "integer",
+        "default": 512,
+        "minimum": 0,
+        "maximum": 2048,
+        "multipleOf": 64,
+        "description": "height of the output image"
+      },
+      "sampler_index": {
+        "title": "Sampler Index",
+        "type": "string",
+        "default": "Euler",
+        "enum": [
+          "Euler",
+          "DDIM",
+          "PLMS"
+        ]
+      },
+      "steps": {
+        "title": "Steps",
+        "type": "integer",
+        "default": 50
+      },
+      "batch_size": {
+        "title": "Batch Size",
+        "type": "integer",
+        "default": 1,
+        "description": "Batch size",
+        "minimum": 1,
+        "maximum": 99
+      },
+      "n_iter": {
+        "title": "N Iter",
+        "type": "integer",
+        "default": 1,
+        "description": "Number of iterations",
+        "minimum": 1,
+        "maximum": 8
+      },
+      "cfg_scale": {
+        "title": "Cfg Scale",
+        "type": "number",
+        "default": 7,
+        "minimum": 1,
+        "maximum": 30
+      },
+      "enable_hr": {
+        "title": "Enable Hr",
+        "type": "boolean",
+        "default": false
+      },
+      "denoising_strength": {
+        "title": "Denoising Strength",
+        "type": "number",
+        "default": 0
+      },
+      "firstphase_width": {
+        "title": "Firstphase Width",
+        "type": "integer",
+        "default": 0
+      },
+      "firstphase_height": {
+        "title": "Firstphase Height",
+        "type": "integer",
+        "default": 0
+      },
+      "styles": {
+        "title": "Styles",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "seed": {
+        "title": "Seed",
+        "type": "integer",
+        "default": -1
+      },
+      "subseed": {
+        "title": "Subseed",
+        "type": "integer",
+        "default": -1
+      },
+      "subseed_strength": {
+        "title": "Subseed Strength",
+        "type": "number",
+        "default": 0
+      },
+      "seed_resize_from_h": {
+        "title": "Seed Resize From H",
+        "type": "integer",
+        "default": -1
+      },
+      "seed_resize_from_w": {
+        "title": "Seed Resize From W",
+        "type": "integer",
+        "default": -1
+      },
+      "restore_faces": {
+        "title": "Restore Faces",
+        "type": "boolean",
+        "default": false
+      },
+      "tiling": {
+        "title": "Tiling",
+        "type": "boolean",
+        "default": false
+      },
+      "negative_prompt": {
+        "title": "Negative Prompt",
         "type": "string"
+      },
+      "eta": {
+        "title": "Eta",
+        "type": "number"
+      },
+      "s_churn": {
+        "title": "S Churn",
+        "type": "number",
+        "default": 0.0
+      },
+      "s_tmax": {
+        "title": "S Tmax",
+        "type": "number"
+      },
+      "s_tmin": {
+        "title": "S Tmin",
+        "type": "number",
+        "default": 0.0
+      },
+      "s_noise": {
+        "title": "S Noise",
+        "type": "number",
+        "default": 1.0
+      }
+    }
+  },
+  "uiSchema": {
+    "prompt": {
+      "ui:widget": "textarea",
+      "ui:options": {
+        "rows": 5
       }
     },
-    "seed": {
-      "title": "Seed",
-      "type": "integer",
-      "default": -1
-    },
-    "subseed": {
-      "title": "Subseed",
-      "type": "integer",
-      "default": -1
-    },
-    "subseed_strength": {
-      "title": "Subseed Strength",
-      "type": "number",
-      "default": 0
-    },
-    "seed_resize_from_h": {
-      "title": "Seed Resize From H",
-      "type": "integer",
-      "default": -1
-    },
-    "seed_resize_from_w": {
-      "title": "Seed Resize From W",
-      "type": "integer",
-      "default": -1
-    },
-    "batch_size": {
-      "title": "Batch Size",
-      "type": "integer",
-      "default": 1
-    },
-    "n_iter": {
-      "title": "N Iter",
-      "type": "integer",
-      "default": 1
-    },
-    "steps": {
-      "title": "Steps",
-      "type": "integer",
-      "default": 50
-    },
-    "cfg_scale": {
-      "title": "Cfg Scale",
-      "type": "number",
-      "default": 7.0
-    },
     "width": {
-      "title": "Width",
-      "type": "integer",
-      "default": 512
+      "ui:widget": "range"
     },
     "height": {
-      "title": "Height",
-      "type": "integer",
-      "default": 512
+      "ui:widget": "range"
     },
-    "restore_faces": {
-      "title": "Restore Faces",
-      "type": "boolean",
-      "default": false
+    "batch_size": {
+      "ui:widget": "range"
     },
-    "tiling": {
-      "title": "Tiling",
-      "type": "boolean",
-      "default": false
-    },
-    "negative_prompt": {
-      "title": "Negative Prompt",
-      "type": "string"
-    },
-    "eta": {
-      "title": "Eta",
-      "type": "number"
-    },
-    "s_churn": {
-      "title": "S Churn",
-      "type": "number",
-      "default": 0.0
-    },
-    "s_tmax": {
-      "title": "S Tmax",
-      "type": "number"
-    },
-    "s_tmin": {
-      "title": "S Tmin",
-      "type": "number",
-      "default": 0.0
-    },
-    "s_noise": {
-      "title": "S Noise",
-      "type": "number",
-      "default": 1.0
-    },
-    "override_settings": {
-      "title": "Override Settings",
-      "type": "object"
-    },
-    "sampler_index": {
-      "title": "Sampler Index",
-      "type": "string",
-      "default": "Euler"
+    "cfg_scale": {
+      "ui:widget": "range"
     }
   }
 }

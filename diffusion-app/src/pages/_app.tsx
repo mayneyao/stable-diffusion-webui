@@ -1,13 +1,23 @@
+import { Box, ChakraProvider, Flex } from '@chakra-ui/react';
 import type { AppProps } from "next/app";
-import { ChakraProvider } from '@chakra-ui/react'
+import Navbar from '../components/navbar';
+import { Sidebar } from "../components/sidebar";
 import { theme } from "./theme";
-
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }: AppProps) {
+
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <Flex width='100%' h="100vh" position="fixed" flexDirection="column">
+        <Navbar />
+        <Flex>
+          <Box maxW='container.sm' h="100vh" w="300px">
+            <Sidebar />
+          </Box>
+          <Component {...pageProps} />
+        </Flex>
+      </Flex>
     </ChakraProvider>
   );
 }
