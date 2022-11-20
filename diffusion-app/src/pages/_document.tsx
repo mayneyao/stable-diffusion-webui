@@ -4,7 +4,7 @@ import { ColorModeScript } from '@chakra-ui/react'
 import { Html, Head, Main, NextScript } from 'next/document'
 import { appWindow } from '@tauri-apps/api/window'
 
-import { theme } from './theme'
+import { theme } from '../components/theme'
 import { useEffect } from 'react'
 
 export default function Document() {

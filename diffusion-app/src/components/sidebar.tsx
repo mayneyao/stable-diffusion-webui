@@ -24,6 +24,12 @@ export const Sidebar = () => {
       path: 'album',
     },
     {
+      name: '插件',
+      slug: 'extension',
+      icon: MdPhotoLibrary,
+      path: 'extension',
+    },
+    {
       name: '设置',
       slug: 'setting',
       icon: MdSettings,

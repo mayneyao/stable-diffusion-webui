@@ -6,26 +6,29 @@
       "prompt": {
         "title": "Prompt",
         "type": "string",
+        "default": ""
+      },
+      "negative_prompt": {
+        "title": "negative prompt",
+        "type": "string",
         "default": "",
-        "description": "description what do you want to gene"
+        "description": "负面词"
       },
       "width": {
         "title": "Width",
         "type": "integer",
         "default": 512,
-        "minimum": 0,
+        "minimum": 64,
         "maximum": 2048,
-        "multipleOf": 64,
-        "description": "width of the output image"
+        "multipleOf": 64
       },
       "height": {
         "title": "Height",
         "type": "integer",
         "default": 512,
-        "minimum": 0,
+        "minimum": 64,
         "maximum": 2048,
-        "multipleOf": 64,
-        "description": "height of the output image"
+        "multipleOf": 64
       },
       "sampler_index": {
         "title": "Sampler Index",
@@ -127,10 +130,6 @@
         "type": "boolean",
         "default": false
       },
-      "negative_prompt": {
-        "title": "Negative Prompt",
-        "type": "string"
-      },
       "eta": {
         "title": "Eta",
         "type": "number"
@@ -158,6 +157,12 @@
   },
   "uiSchema": {
     "prompt": {
+      "ui:widget": "textarea",
+      "ui:options": {
+        "rows": 5
+      }
+    },
+    "negative_prompt": {
       "ui:widget": "textarea",
       "ui:options": {
         "rows": 5

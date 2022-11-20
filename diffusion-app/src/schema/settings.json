@@ -1,0 +1,14 @@
+{
+  "schema": {
+    "title": "配置",
+    "type": "object",
+    "properties": {
+      "api": {
+        "title": "API BASE URL",
+        "type": "string",
+        "default": "http://localhost:7861"
+      }
+    }
+  },
+  "uiSchema": {}
+}

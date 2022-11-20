@@ -2,6 +2,7 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  // appDir: true,
   swcMinify: true,
   images: {
     unoptimized: true,
