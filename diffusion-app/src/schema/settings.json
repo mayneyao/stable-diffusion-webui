@@ -7,6 +7,10 @@
         "title": "API BASE URL",
         "type": "string",
         "default": "http://localhost:7861"
+      },
+      "fileStorePath": {
+        "title": "文件存储路径",
+        "type": "string"
       }
     }
   },

@@ -1,11 +1,9 @@
 // pages/_document.js
 
 import { ColorModeScript } from '@chakra-ui/react'
-import { Html, Head, Main, NextScript } from 'next/document'
-import { appWindow } from '@tauri-apps/api/window'
+import { Head, Html, Main, NextScript } from 'next/document'
 
 import { theme } from '../components/theme'
-import { useEffect } from 'react'
 
 export default function Document() {
   // useEffect(() => {

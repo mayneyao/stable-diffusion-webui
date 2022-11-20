@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 import Navbar from '../components/navbar';
 import { Sidebar } from "../components/sidebar";
 import { theme } from "../components/theme";
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }: AppProps) {
